@@ -22,17 +22,48 @@ namespace APIDemo.BAL
         #endregion
 
         #region Method : dbo.API_Person_SelectByID
-        public PersonModel dbo_API_Person_SelectByID(int UserID)
+        public PersonModel dbo_API_Person_SelectByID(int PersonID)
         {
             try
             {
                 PersonDALBase personDALBase = new PersonDALBase();
-                PersonModel personModel = personDALBase.dbo_API_Person_SelectByID(UserID);
+                PersonModel personModel = personDALBase.dbo_API_Person_SelectByID(PersonID);
                 return personModel;
             }
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+        #endregion
+
+        #region Method : dbo.API_Person_DeleteByID
+        public int dbo_API_Person_Delete(int PersonID)
+        {
+            try
+            {
+                PersonDALBase personDALBase = new PersonDALBase();
+                int personID = personDALBase.dbo_API_Person_Delete(PersonID);
+                return personID;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Method : dbo.API_Person_Insert
+        public void dbo_API_Person_Insert(PersonModel personModel)
+        {
+            try
+            {
+                PersonDALBase personDALBase = new PersonDALBase();
+                personDALBase.dbo_API_Person_Insert(personModel);
+            }
+            catch (Exception ex)
+            {
+                return;
             }
         }
         #endregion

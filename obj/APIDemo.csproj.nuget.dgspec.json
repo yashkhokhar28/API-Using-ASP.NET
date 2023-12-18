@@ -40,17 +40,13 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
-            "EnterpriseLibrary.Data": {
+            "EnterpriseLibrary.Data.NetCore": {
               "target": "Package",
-              "version": "[6.0.1304, )"
+              "version": "[6.3.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.5.0, )"
-            },
-            "System.Data.SqlClient": {
-              "target": "Package",
-              "version": "[4.8.5, )"
             }
           },
           "imports": [

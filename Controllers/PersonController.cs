@@ -57,6 +57,49 @@ namespace APIDemo.Controllers
             }
         }
         #endregion
+
+        #region Delete
+        [HttpDelete("{PersonID}")]
+        public IActionResult Delete(int PersonID)
+        {
+            PersonBALBase personBALBase = new PersonBALBase();
+            int personID = personBALBase.dbo_API_Person_Delete(PersonID);
+            // Make the Response in Key Value Pair
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>();
+            if (personID != 0)
+            {
+                response.Add("status", true);
+                response.Add("message", "Data Deleted");
+                response.Add("deletedID", personID);
+                return Ok(response);
+            }
+            else
+            {
+                response.Add("status", false);
+                response.Add("message", "Data Not Deleted");
+                response.Add("deletedID", 0);
+                return NotFound(response);
+            }
+        }
+        #endregion
+
+        #region Insert
+        [HttpPost()]
+        public IActionResult Insert([FromBody] PersonModel personModel)
+        {
+            if (personModel == null)
+            {
+                return BadRequest("Invalid data");
+            }
+            PersonModel model = new PersonModel();
+            model.Name = personModel.Name;
+            model.Email = personModel.Email;
+            model.Contact = personModel.Contact;
+            PersonBALBase personBALBase = new PersonBALBase();
+            personBALBase.dbo_API_Person_Insert(model);
+            return CreatedAtAction(nameof(Get), new { id = "" }, model);
+        }
+        #endregion
     }
 
 
