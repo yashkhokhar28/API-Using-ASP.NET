@@ -91,9 +91,29 @@ namespace APIDemo.DAL
             {
                 SqlDatabase sqlDatabase = new SqlDatabase(ConnectionString);
                 DbCommand dbCommand = sqlDatabase.GetStoredProcCommand("API_Person_Insert");
-                sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.Int32, personModel.Name);
-                sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.Int32, personModel.Contact);
-                sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.Int32, personModel.Email);
+                sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.String, personModel.Name);
+                sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.String, personModel.Contact);
+                sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.String, personModel.Email);
+                sqlDatabase.ExecuteNonQuery(dbCommand);
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+        #endregion
+
+        #region Method : dbo.API_Person_Update
+        public void dbo_API_Person_Update(PersonModel personModel)
+        {
+            try
+            {
+                SqlDatabase sqlDatabase = new SqlDatabase(ConnectionString);
+                DbCommand dbCommand = sqlDatabase.GetStoredProcCommand("API_Person_Update");
+                sqlDatabase.AddInParameter(dbCommand, "@PersonID", DbType.Int32, personModel.PersonID);
+                sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.String, personModel.Name);
+                sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.String, personModel.Contact);
+                sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.String, personModel.Email);
                 sqlDatabase.ExecuteNonQuery(dbCommand);
             }
             catch (Exception ex)

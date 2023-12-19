@@ -84,12 +84,12 @@ namespace APIDemo.Controllers
         #endregion
 
         #region Insert
-        [HttpPost()]
+        [HttpPost]
         public IActionResult Insert([FromBody] PersonModel personModel)
         {
             if (personModel == null)
             {
-                return BadRequest("Invalid data");
+                return NotFound();
             }
             PersonModel model = new PersonModel();
             model.Name = personModel.Name;
@@ -97,7 +97,25 @@ namespace APIDemo.Controllers
             model.Contact = personModel.Contact;
             PersonBALBase personBALBase = new PersonBALBase();
             personBALBase.dbo_API_Person_Insert(model);
-            return CreatedAtAction(nameof(Get), new { id = "" }, model);
+            return CreatedAtAction(nameof(Get), new { id = model.PersonID }, model);
+        }
+        #endregion
+
+        #region Update
+        [HttpPut("{PersonID}")]
+        public IActionResult Update([FromRoute] int PersonID, [FromBody] PersonModel personModel)
+        {
+            if (personModel == null)
+            {
+                return NotFound();
+            }
+            PersonModel model = new PersonModel();
+            model.Name = personModel.Name;
+            model.Email = personModel.Email;
+            model.Contact = personModel.Contact;
+            PersonBALBase personBALBase = new PersonBALBase();
+            personBALBase.dbo_API_Person_Update(model);
+            return CreatedAtAction(nameof(Get), new { id = model.PersonID }, model);
         }
         #endregion
     }

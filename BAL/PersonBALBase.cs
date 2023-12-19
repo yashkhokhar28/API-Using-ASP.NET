@@ -67,5 +67,20 @@ namespace APIDemo.BAL
             }
         }
         #endregion
+
+        #region Method : dbo.API_Person_Update
+        public void dbo_API_Person_Update(PersonModel personModel)
+        {
+            try
+            {
+                PersonDALBase personDALBase = new PersonDALBase();
+                personDALBase.dbo_API_Person_Update(personModel);
+            }
+            catch (Exception ex)
+            {
+                return;
+            }
+        }
+        #endregion
     }
 }
