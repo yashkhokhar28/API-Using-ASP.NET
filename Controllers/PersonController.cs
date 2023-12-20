@@ -63,21 +63,19 @@ namespace APIDemo.Controllers
         public IActionResult Delete(int PersonID)
         {
             PersonBALBase personBALBase = new PersonBALBase();
-            int personID = personBALBase.dbo_API_Person_Delete(PersonID);
+            bool IsSuccess = personBALBase.dbo_API_Person_Delete(PersonID);
             // Make the Response in Key Value Pair
             Dictionary<string, dynamic> response = new Dictionary<string, dynamic>();
-            if (personID != 0)
+            if (IsSuccess)
             {
                 response.Add("status", true);
                 response.Add("message", "Data Deleted");
-                response.Add("deletedID", personID);
                 return Ok(response);
             }
             else
             {
                 response.Add("status", false);
                 response.Add("message", "Data Not Deleted");
-                response.Add("deletedID", 0);
                 return NotFound(response);
             }
         }
@@ -85,37 +83,57 @@ namespace APIDemo.Controllers
 
         #region Insert
         [HttpPost]
-        public IActionResult Insert([FromBody] PersonModel personModel)
+        public IActionResult Post([FromForm] PersonModel personModel)
         {
             if (personModel == null)
             {
                 return NotFound();
             }
-            PersonModel model = new PersonModel();
-            model.Name = personModel.Name;
-            model.Email = personModel.Email;
-            model.Contact = personModel.Contact;
             PersonBALBase personBALBase = new PersonBALBase();
-            personBALBase.dbo_API_Person_Insert(model);
-            return CreatedAtAction(nameof(Get), new { id = model.PersonID }, model);
+            bool IsSuccess = personBALBase.dbo_API_Person_Insert(personModel);
+            // Make the Response in Key Value Pair
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>();
+            if (IsSuccess)
+            {
+                response.Add("status", true);
+                response.Add("message", "Data Inserted");
+                return Ok(response);
+            }
+            else
+            {
+                response.Add("status", false);
+                response.Add("message", "Data Not Inserted");
+                return NotFound(response);
+            }
+
         }
         #endregion
 
         #region Update
         [HttpPut("{PersonID}")]
-        public IActionResult Update([FromRoute] int PersonID, [FromBody] PersonModel personModel)
+        public IActionResult Put(int PersonID, [FromForm] PersonModel personModel)
         {
             if (personModel == null)
             {
                 return NotFound();
             }
-            PersonModel model = new PersonModel();
-            model.Name = personModel.Name;
-            model.Email = personModel.Email;
-            model.Contact = personModel.Contact;
             PersonBALBase personBALBase = new PersonBALBase();
-            personBALBase.dbo_API_Person_Update(model);
-            return CreatedAtAction(nameof(Get), new { id = model.PersonID }, model);
+            bool IsSuccess = personBALBase.dbo_API_Person_Update(PersonID, personModel);
+            // Make the Response in Key Value Pair
+            Dictionary<string, dynamic> response = new Dictionary<string, dynamic>();
+            if (IsSuccess)
+            {
+                response.Add("status", true);
+                response.Add("message", "Data Updated");
+                return Ok(response);
+            }
+            else
+            {
+                response.Add("status", false);
+                response.Add("message", "Data Not Updated");
+                return NotFound(response);
+            }
+
         }
         #endregion
     }

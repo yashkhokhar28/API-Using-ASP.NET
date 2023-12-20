@@ -67,25 +67,32 @@ namespace APIDemo.DAL
         #endregion
 
         #region Method : dbo.API_Person_Delete
-        public int dbo_API_Person_Delete(int PersonID)
+        public bool dbo_API_Person_Delete(int PersonID)
         {
             try
             {
                 SqlDatabase sqlDatabase = new SqlDatabase(ConnectionString);
                 DbCommand dbCommand = sqlDatabase.GetStoredProcCommand("API_Person_Delete");
                 sqlDatabase.AddInParameter(dbCommand, "@PersonID", DbType.Int32, PersonID);
-                int personID = sqlDatabase.ExecuteNonQuery(dbCommand);
-                return personID;
+                if (Convert.ToBoolean(sqlDatabase.ExecuteNonQuery(dbCommand)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             catch (Exception ex)
             {
-                return 0;
+                return false;
             }
         }
         #endregion
 
         #region Method : dbo.API_Person_Insert
-        public void dbo_API_Person_Insert(PersonModel personModel)
+        public bool dbo_API_Person_Insert(PersonModel personModel)
         {
             try
             {
@@ -94,31 +101,45 @@ namespace APIDemo.DAL
                 sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.String, personModel.Name);
                 sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.String, personModel.Contact);
                 sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.String, personModel.Email);
-                sqlDatabase.ExecuteNonQuery(dbCommand);
+                if (Convert.ToBoolean(sqlDatabase.ExecuteNonQuery(dbCommand)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
-                return;
+                return false;
             }
         }
         #endregion
 
         #region Method : dbo.API_Person_Update
-        public void dbo_API_Person_Update(PersonModel personModel)
+        public bool dbo_API_Person_Update(int PersonID, PersonModel personModel)
         {
             try
             {
                 SqlDatabase sqlDatabase = new SqlDatabase(ConnectionString);
-                DbCommand dbCommand = sqlDatabase.GetStoredProcCommand("API_Person_Update");
-                sqlDatabase.AddInParameter(dbCommand, "@PersonID", DbType.Int32, personModel.PersonID);
+                DbCommand dbCommand = sqlDatabase.GetStoredProcCommand("API_Person_UpdateByPK");
+                sqlDatabase.AddInParameter(dbCommand, "@PersonID", DbType.Int32, PersonID);
                 sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.String, personModel.Name);
                 sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.String, personModel.Contact);
                 sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.String, personModel.Email);
-                sqlDatabase.ExecuteNonQuery(dbCommand);
+                if (Convert.ToBoolean(sqlDatabase.ExecuteNonQuery(dbCommand)))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
-                return;
+                return false;
             }
         }
         #endregion

@@ -38,47 +38,68 @@ namespace APIDemo.BAL
         #endregion
 
         #region Method : dbo.API_Person_DeleteByID
-        public int dbo_API_Person_Delete(int PersonID)
+        public bool dbo_API_Person_Delete(int PersonID)
         {
             try
             {
                 PersonDALBase personDALBase = new PersonDALBase();
-                int personID = personDALBase.dbo_API_Person_Delete(PersonID);
-                return personID;
+                if (personDALBase.dbo_API_Person_Delete(PersonID))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
             }
             catch (Exception ex)
             {
-                return 0;
+                return false;
             }
         }
         #endregion
 
         #region Method : dbo.API_Person_Insert
-        public void dbo_API_Person_Insert(PersonModel personModel)
+        public bool dbo_API_Person_Insert(PersonModel personModel)
         {
             try
             {
                 PersonDALBase personDALBase = new PersonDALBase();
-                personDALBase.dbo_API_Person_Insert(personModel);
+                if (personDALBase.dbo_API_Person_Insert(personModel))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
-                return;
+                return false;
             }
         }
         #endregion
 
         #region Method : dbo.API_Person_Update
-        public void dbo_API_Person_Update(PersonModel personModel)
+        public bool dbo_API_Person_Update(int PersonID, PersonModel personModel)
         {
             try
             {
                 PersonDALBase personDALBase = new PersonDALBase();
-                personDALBase.dbo_API_Person_Update(personModel);
+                if (personDALBase.dbo_API_Person_Update(PersonID,personModel))
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             catch (Exception ex)
             {
-                return;
+                return false;
             }
         }
         #endregion
