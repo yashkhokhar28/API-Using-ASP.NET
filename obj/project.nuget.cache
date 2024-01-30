@@ -1,12 +1,16 @@
 {
   "version": 2,
-  "dgSpecHash": "/ApeECPscdAuN2tDzv/xPPWVEtLq68MN5+zTYdPKBbh+kjkrD9NsYd8jRjDx9o9ZqI6ScukGM0n4NGCtsUIDNA==",
+  "dgSpecHash": "nQMo0DoNMmJK0ySayK6RAYC+Q0uSjraUJs2yWI9zYjbKoi7JFaocB4D30VpTaE0xRMV9mYVJsAQl+gaIPhxhrg==",
   "success": true,
   "projectFilePath": "D:\\ASP.NET\\Projects\\APIDemo\\API-Using-ASP.NET\\APIDemo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yashk\\.nuget\\packages\\enterpriselibrary.common.netcore\\6.3.0\\enterpriselibrary.common.netcore.6.3.0.nupkg.sha512",
     "C:\\Users\\yashk\\.nuget\\packages\\enterpriselibrary.data.netcore\\6.3.2\\enterpriselibrary.data.netcore.6.3.2.nupkg.sha512",
+    "C:\\Users\\yashk\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\yashk\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\yashk\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\yashk\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\yashk\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\2.1.0\\microsoft.extensions.dependencyinjection.abstractions.2.1.0.nupkg.sha512",
     "C:\\Users\\yashk\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0-preview6.19303.8\\microsoft.netcore.platforms.3.0.0-preview6.19303.8.nupkg.sha512",
     "C:\\Users\\yashk\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\yashk\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
