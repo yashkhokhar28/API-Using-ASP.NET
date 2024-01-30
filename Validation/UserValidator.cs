@@ -28,6 +28,10 @@ namespace APIDemo.Validation
                 .WithMessage("Email Can't Be Null")
                 .EmailAddress()
                 .WithMessage("Enter Valid Email Address");
+
+            RuleFor(UserModel => UserModel.Height)
+                .InclusiveBetween(105, 214)
+                .WithMessage("Enter Valid Height");
         }
     }
 }

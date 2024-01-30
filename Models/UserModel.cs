@@ -9,5 +9,7 @@
         public string ConfirmPassword { get; set; }
 
         public string Email { get; set;}
+
+        public int Height { get; set; }
     }
 }
