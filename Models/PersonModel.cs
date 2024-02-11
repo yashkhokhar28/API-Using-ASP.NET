@@ -9,5 +9,9 @@
         public string Contact { get; set; }
 
         public string Email { get; set; }
+
+        public int CityID { get; set; }
+
+        public string? CityName { get; set; }
     }
 }

@@ -24,6 +24,8 @@ namespace APIDemo.DAL
                         personModel.Name = dataReader["Name"].ToString();
                         personModel.Email = dataReader["Email"].ToString();
                         personModel.Contact = dataReader["Contact"].ToString();
+                        personModel.CityID = Convert.ToInt32(dataReader["CityID"]);
+                        personModel.CityName = dataReader["CityName"].ToString();
                         listOfPerson.Add(personModel);
                     }
 
@@ -51,10 +53,11 @@ namespace APIDemo.DAL
                 {
                     dataReader.Read();
                     personModel.PersonID = Convert.ToInt32(dataReader["PersonID"].ToString());
-                    Console.WriteLine(Convert.ToInt32(dataReader["PersonID"].ToString()));
                     personModel.Name = dataReader["Name"].ToString();
                     personModel.Email = dataReader["Email"].ToString();
                     personModel.Contact = dataReader["Contact"].ToString();
+                    personModel.CityID = Convert.ToInt32(dataReader["CityID"]);
+                    personModel.CityName = dataReader["CityName"].ToString();
                 }
                 return personModel;
             }
@@ -101,6 +104,7 @@ namespace APIDemo.DAL
                 sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.String, personModel.Name);
                 sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.String, personModel.Contact);
                 sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.String, personModel.Email);
+                sqlDatabase.AddInParameter(dbCommand, "@CityID", DbType.Int32, personModel.CityID);
                 if (Convert.ToBoolean(sqlDatabase.ExecuteNonQuery(dbCommand)))
                 {
                     return true;
@@ -128,6 +132,7 @@ namespace APIDemo.DAL
                 sqlDatabase.AddInParameter(dbCommand, "@Name", DbType.String, personModel.Name);
                 sqlDatabase.AddInParameter(dbCommand, "@Contact", DbType.String, personModel.Contact);
                 sqlDatabase.AddInParameter(dbCommand, "@Email", DbType.String, personModel.Email);
+                sqlDatabase.AddInParameter(dbCommand, "@CityID", DbType.Int32, personModel.CityID);
                 if (Convert.ToBoolean(sqlDatabase.ExecuteNonQuery(dbCommand)))
                 {
                     return true;
