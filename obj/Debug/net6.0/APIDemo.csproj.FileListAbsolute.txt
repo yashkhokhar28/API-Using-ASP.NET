@@ -62,7 +62,6 @@ D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\staticwebassets\m
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.APIDemo.props
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\staticwebassets.pack.json
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\scopedcss\bundle\APIDemo.styles.css
-D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\APIDemo.csproj.CopyComplete
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\APIDemo.genruntimeconfig.cache
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\ref\APIDemo.dll
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\bin\Debug\net6.0\System.Data.SqlClient.dll
@@ -89,3 +88,4 @@ D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\bin\Debug\net6.0\runtimes\win\lib\
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\bin\Debug\net6.0\FluentValidation.dll
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
 D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll
+D:\ASP.NET\Projects\APIDemo\API-Using-ASP.NET\obj\Debug\net6.0\APIDemo.csproj.Up2Date
